@@ -2,7 +2,7 @@ apiVersion: flagger.app/v1beta1
 kind: Canary
 metadata:
   name: test-app
-  namespace: demo
+  namespace: test
 spec:
   # deployment reference
   targetRef:
