@@ -14,11 +14,11 @@ kubectl version --short
 
 You should see output with both a `Client Version` and `Server Version` component.
 
-## **Step 0: Account Creation** 
+## **Step 0: Account Creation**
 
 To signup for HybridK8s Droid, create a HybridK8s account [here](https://hybridk8s.tech/signup). Once created, verify your account and you can use the username and password to sign in to HybridK8s platform. 
 
-## **Step 1: Install Pre-requisites** 
+## **Step 1: Install Pre-requisites**
 
 First, you will install the a service mesh, say, Linkerd onto your local machine. Using this CLI, you’ll then install the _control plane_ onto your Kubernetes cluster. Finally, we'll install flagger operator. 
 
@@ -81,7 +81,7 @@ kubectl apply -k https://github.com/fluxcd/flagger//kustomize/tester?ref=main
 If you want to install a **demo test app**. Create a deployment and a horizontal pod autoscaler:
 
 ```shell
-kubectl apply -k https://github.com/HybridK8s/demos
+git clone https://github.com/HybridK8s/demos && cd demos/droid
 
 helm upgrade -i test-app test-app -n test
 ```
@@ -120,7 +120,7 @@ Congrats! Milestone achieved! 
 
 Create a [canary custom resource](https://github.com/HybridK8s/demos/blob/main/droid/canary.yaml) for the test-app deployment. Just make sure to add the **cluster key**(`<CLUSTER_KEY>)` in the **canary.yaml** before applying :  
 
-```
+```yaml
 apiVersion: flagger.app/v1beta1
 kind: Canary
 metadata:
@@ -194,24 +194,24 @@ You can see the magic happening via CLI or Linkerd dashboard. 
 CLI fans, use : 
 
 ```
-k describe canary -n test test-app
+kubectl describe canary -n test test-app
 ```
 
 Visualisation admirers, use : 
 
 ```shell
-linkerd viz dashboard &
+linkerd viz dashboard
 ```
 
 We can see traffic splitting, response rates and other metrics. 
 
 After a few minutes the canary will fail and automatically rollback because Droid automatically compared the primary metrics and logs with the canary metrics and logs. Things didn't seem better/fine. You can see why the deployment failed in detail on the platform.
 
-**In case of metric failures :** 
+**In case of metric failures :**
 
 ![](https://user-images.githubusercontent.com/15074229/120481033-506d8980-c3cd-11eb-9959-7496cbc8881f.png)
 
-**In case of log failures :** 
+**In case of log failures :**
 
 ![](https://user-images.githubusercontent.com/15074229/120481444-bd811f00-c3cd-11eb-9e0c-4863244b6f4f.png)
 
