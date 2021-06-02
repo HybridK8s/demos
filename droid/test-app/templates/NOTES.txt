@@ -1,0 +1,3 @@
+Thanks for installing HybridK8s Droid demo application. We hope you are able to test the capabilities of Droid thoroughly. If you encounter any issues please reach us at support@hybridk8s.tech
+
+Cheers!

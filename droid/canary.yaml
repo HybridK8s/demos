@@ -1,0 +1,48 @@
+apiVersion: flagger.app/v1beta1
+kind: Canary
+metadata:
+  name: test-app
+  namespace: demo
+spec:
+  # deployment reference
+  targetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: test-app
+  # the maximum time in seconds for the canary deployment
+  # to make progress before it is rollback (default 600s)
+  progressDeadlineSeconds: 800
+  service:
+    # ClusterIP port number
+    port: 80
+    # container port number or name (optional)
+    targetPort: 8080
+  analysis:
+    # schedule interval (default 60s)
+    interval: 60s
+    # max number of failed metric checks before rollback
+    threshold: 1
+    # max traffic percentage routed to canary
+    # percentage (0-100)
+    maxWeight: 50
+    # canary increment step
+    # percentage (0-100)
+    stepWeight: 5
+    # Linkerd Prometheus checks
+    webhooks:
+    - name: load-test
+      type: rollout
+      url: http://flagger-loadtester.test/
+      metadata:
+        cmd: "hey -z 60m -q 100 -c 2 http://test-app.demo/test"
+    - name: verify
+      type: rollout
+      url: https://api.hybridk8s.tech/api/flagger/verify
+      timeout: 45s
+      metadata:
+        api_key: "9bccd66a9071ceb3c85adab848ae55"
+        app: "demo-app-1"
+        primary: "test-app-primary"
+        canary: "test-app"
+        container: "test-app"
+        duration: "60"
