@@ -4,7 +4,7 @@ Welcome to HybridK8s Droid! 🎈
 
 In this guide, we’ll walk you through how to install Droid's agent into your Kubernetes cluster. Then we’ll deploy a sample application to show off what it can do.
 
-Installing Droid is easy. Just before we can do anything, we need to ensure you have access to modern Kubernetes cluster and a functioning `kubectl` command on your local machine. (If you don’t already have a Kubernetes cluster, one easy option is to run one on your local machine. There are many ways to do this, including [kind](https://kind.sigs.k8s.io/), [k3d](https://k3d.io/), [Docker for Desktop](https://www.docker.com/products/docker-desktop), [and more](https://kubernetes.io/docs/setup/).)
+Installing Droid is easy. Just before we can do anything, we need to ensure you have access to modern Kubernetes cluster with a publicly exposed IP and a functioning `kubectl` command on your local machine.
 
 You can validate your setup by running:
 
