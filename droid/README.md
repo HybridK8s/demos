@@ -161,7 +161,7 @@ spec:
     - name: verify
       type: rollout
       url: https://api.hybridk8s.tech/api/flagger/verify
-      timeout: 45s
+      timeout: 120s
       metadata:
         api_key: "<CLUSTER_KEY>"
         app: "demo-app-1"
