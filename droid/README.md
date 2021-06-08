@@ -111,7 +111,7 @@ helm repo add hybridk8s https://hybridk8s.github.io/agent-chart && helm repo upd
  Please ensure you use the right Cluster key. 
 
 ```shell
-helm upgrade -i hybridk8s-agent -n agent hybridk8s/helm-chart --set config.AGENT_AGENTINFO_APIKEY=<CLUSTER_KEY>
+helm upgrade -i hybridk8s-agent -n agent hybridk8s/agent --set config.AGENT_AGENTINFO_APIKEY=<CLUSTER_KEY>
 ```
 
 Congrats! Milestone achieved! 
