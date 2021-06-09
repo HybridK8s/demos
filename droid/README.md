@@ -16,7 +16,7 @@ You should see output with both a `Client Version` and `Server Version` componen
 
 ## **Step 0: Account Creation**
 
-To signup for HybridK8s Droid, create a HybridK8s account [here](https://hybridk8s.tech/signup). Once created, verify your account and you can use the username and password to sign in to HybridK8s platform. 
+To signup for HybridK8s Droid, create a HybridK8s account [here](https://app.hybridk8s.tech/signin). Once created, verify your account and you can use the username and password to sign in to HybridK8s platform. 
 
 ## **Step 1: Install Pre-requisites**
 
