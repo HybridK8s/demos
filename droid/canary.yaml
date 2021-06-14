@@ -19,7 +19,7 @@ spec:
     targetPort: 8080
   analysis:
     # schedule interval (default 60s)
-    interval: 60s
+    interval: 600s
     # max number of failed metric checks before rollback
     threshold: 1
     # max traffic percentage routed to canary
