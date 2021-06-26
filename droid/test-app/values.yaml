@@ -8,10 +8,13 @@ image:
   repository: slayerjain/test-app
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "normal"
+  tag: "log-demo-3"
 
 nameOverride: ""
 fullnameOverride: ""
+
+# env:
+#   LOGS_PATH: "/app/bgl/primary.log"
 
 serviceAccount:
   # Specifies whether a service account should be created
